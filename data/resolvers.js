@@ -1,4 +1,4 @@
-import { FortuneCookie } from './connectors';
+import { FortuneCookie, GithubGraphQL } from './connectors';
 
 const resolvers = {
   Query: {
@@ -9,10 +9,7 @@ const resolvers = {
       return [{ id: 1, firstName: 'Hello', lastName: 'World' }];
     },
     repos() {
-      return [
-        { name: 'RepoName-Hello' },
-        { name: 'RepoName-World' } 
-      ];
+      return GithubGraphQL.getRepos();
     },
     getFortuneCookie() {
       return FortuneCookie.getOne();
@@ -31,19 +28,6 @@ const resolvers = {
       return { id: 1, firstName: 'Hello', lastName: 'World' };
     }
   },
-  Repo: {
-    owner(repo){
-      return { login: 'Repologin', avatarUrl: 'STZUrl' };
-    }
-  },
-  Owner: {
-    followers(owner) {
-      return [
-        { name: 'Bruce Banner'},
-        { name: 'Tony Stark' }
-      ];
-    }
-  }
 };
 
 export default resolvers;

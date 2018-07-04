@@ -34,13 +34,8 @@ type Repo {
 type Owner {
   login: String
   avatarUrl: String
-  followers:[Follower]
+  followers: String
 }
-
-type Follower {
-  name: String
-}
-
 `;
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });

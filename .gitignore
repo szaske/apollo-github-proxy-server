@@ -34,3 +34,9 @@ node_modules
 
 .idea/
 blog.sqlite
+
+# API keys
+.env
+
+# VS Code
+.vscode
