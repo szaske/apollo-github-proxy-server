@@ -1,4 +1,5 @@
-import { FortuneCookie, GithubGraphQL } from './connectors';
+import { GithubGraphQL, GithubGraphQLSearch } from './connectors';
+import { mocks } from './mocks';
 
 const resolvers = {
   Query: {
@@ -8,11 +9,12 @@ const resolvers = {
     allAuthors() {
       return [{ id: 1, firstName: 'Hello', lastName: 'World' }];
     },
-    repos() {
-      return GithubGraphQL.getRepos();
+    repos(root, args, ctx, info){
+      return GithubGraphQL.getRepos(args)
     },
-    getFortuneCookie() {
-      return FortuneCookie.getOne();
+    search(root, args) {
+      console.log("sending: " + args.count + " Repos + owner data")
+      return GithubGraphQLSearch.getRepos(args)
     }
   },
   Author: {

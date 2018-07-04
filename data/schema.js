@@ -1,6 +1,6 @@
 import resolvers from './resolvers';
 import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
-// import mocks from './mocks';
+import mocks from './mocks';
 
 const typeDefs = `
 type Query {
@@ -8,7 +8,12 @@ type Query {
   author(firstName: String, lastName: String): Author
   allAuthors: [Author]
   repos: [Repo!]!
-  getFortuneCookie: String # we'll use this later
+  search(count: Int): Search
+}
+
+type Search {
+  count: Int
+  repos: [Repo!]!
 }
 
 type Author {
