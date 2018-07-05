@@ -4,9 +4,6 @@ import mocks from './mocks';
 
 const typeDefs = `
 type Query {
-  testString: String
-  author(firstName: String, lastName: String): Author
-  allAuthors: [Author]
   repos: [Repo!]!
   search(count: Int): Search
 }
@@ -14,21 +11,6 @@ type Query {
 type Search {
   count: Int
   repos: [Repo!]!
-}
-
-type Author {
-  id: Int
-  firstName: String
-  lastName: String
-  posts: [Post]
-}
-
-type Post {
-  id: Int
-  title: String
-  text: String
-  views: Int
-  author: Author
 }
 
 type Repo {
