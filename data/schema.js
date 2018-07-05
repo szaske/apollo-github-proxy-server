@@ -4,8 +4,7 @@ import mocks from './mocks';
 
 const typeDefs = `
 type Query {
-  repos: [Repo!]!
-  search(count: Int): Search
+  search(count: Int): Search @cacheControl(maxAge: 60)
 }
 
 type Search {
@@ -13,12 +12,12 @@ type Search {
   repos: [Repo!]!
 }
 
-type Repo {
+type Repo @cacheControl(maxAge: 240){
   name: String
   owner: Owner
 }
 
-type Owner {
+type Owner @cacheControl(maxAge: 60){
   login: String
   avatarUrl: String
   followers: String
