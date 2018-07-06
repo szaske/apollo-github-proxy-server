@@ -11,6 +11,7 @@ const GithubGraphQLSearch = {
         nodes {
           ... on Repository {
             name
+            id
             owner {
               login
               avatarUrl
@@ -56,6 +57,7 @@ const GithubGraphQLSearch = {
 
       return {
         name : repoIteration.name,
+        id : repoIteration.id,
         owner : passedOwner
       }
     }

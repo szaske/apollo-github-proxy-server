@@ -14,6 +14,7 @@ type Search {
 
 type Repo @cacheControl(maxAge: 240){
   name: String
+  id: String
   owner: Owner
 }
 

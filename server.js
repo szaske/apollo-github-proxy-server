@@ -7,7 +7,7 @@ const { ApolloEngine } = require('apollo-engine');
 const cors = require('cors')
 const dotenv = require('dotenv').config()
 
-const GRAPHQL_PORT = 4000;
+const GRAPHQL_PORT = (process.env.PORT || 4000);
 
 const graphQLServer = express();
 
