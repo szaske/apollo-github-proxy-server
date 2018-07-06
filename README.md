@@ -8,7 +8,8 @@ A GraphQL server that proxies the [Github GraphQL service](https://developer.git
 
 #### Getting Started
 
-Like most development projects this code requires that you have some basic development tools installed on your development system; Git, Node.js and NPM.  You'll also need a Github access token.  You can find the instructions for creating the token [here](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+Like most development projects this code requires that you have some basic development tools installed on your development system; Git, Node.js and NPM.  You'll also need a Github access token and and Apollo Engine API-KEY.  You can find the instructions for creating a Github token [here](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/), and instructions for creating an Apollo Engine API-KEY [here](https://www.apollographql.com/engine)
+
 
 ### Install
 
@@ -23,9 +24,10 @@ Create a file called .env in the projects root folder
 touch .env
 ```
 
-This is where you'll store your Github access token.  Edit the file to include this line:
+This is where you'll store your Github access token and Engine API-KEY.  Edit the file to include these lines:
 ```
 GITHUB_TOKEN=[Put your access token here without brackets]
+ENGINE_API_KEY=[Put your full Engine API-KEY here]
 ```
 
 Now the server should run.
